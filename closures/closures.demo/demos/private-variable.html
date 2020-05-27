@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<script>
+
+    'use strict';
+
+    // code here
+
+    function getPerson() {
+
+        return {
+            _firstName: '',
+            get firstName() {
+                return this._firstName;
+            },
+            set firstName(value) {
+                this._firstName = value;
+            },
+        };
+    }
+
+    const person = getPerson();
+    person.firstName = 'Bob'; // set
+    console.log(person.firstName); // get
+
+    console.dir(person);
+
+
+</script>

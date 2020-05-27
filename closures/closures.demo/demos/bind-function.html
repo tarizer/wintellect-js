@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<script>
+
+    'use strict';
+
+    // code here
+
+    const person = {
+        firstName: 'Bob',
+        lastName: 'Smith',
+        getFullName: function() {
+            console.log(this.firstName + ' ' + this.lastName);
+        }
+    };
+
+    //person.getFullName();
+    
+    //person.getFullName = person.getFullName.bind(person);
+
+    function bindFn(fn, valueOfThis) {
+        return function() {
+            fn.call(valueOfThis);
+        }
+    }
+
+    person.getFullName = bindFn(person.getFullName, person);
+    
+    setTimeout(person.getFullName, 1000);
+
+
+</script>

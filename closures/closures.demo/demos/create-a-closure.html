@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<script>
+
+    'use strict';
+
+    // code here
+
+
+    function outer() {
+
+        const t = 2;
+
+        function inner() {
+
+            console.log(t);
+        }
+
+        inner();
+        console.dir(inner);
+    }
+
+    outer();
+    //console.log(window.t);
+    //console.dir(outer);
+
+</script>

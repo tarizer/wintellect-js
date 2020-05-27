@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<script>
+
+    'use strict';
+
+    // code here
+
+    // function personFactory() {
+
+    //     function getFullName() {
+    //         return this.firstName + ' ' + this.lastName;
+    //     }
+
+    //     return function createPerson(fn, ln) {
+    //         return {
+    //             firstName: fn,
+    //             lastName: ln,
+    //             getFullName
+    //         };
+    //     };
+    // }
+
+    // const fn = personFactory();
+
+    const basePerson = {
+        getFullName() {
+            return this.firstName + ' ' + this.lastName;
+        }
+    };
+
+    function createPerson(firstName, lastName) {
+        const p = Object.create(basePerson);
+        p.firstName = firstName;
+        p.lastName = lastName;
+        return p;
+    }
+
+    const p1 = createPerson('Bob', 'Smith');
+    const p2 = createPerson('Jane', 'Smith');
+
+    console.log(p1.getFullName());
+    console.log(p2.getFullName());
+    console.log(p1.getFullName === p2.getFullName);
+
+
+
+</script>

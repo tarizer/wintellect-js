@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<script>
+
+    'use strict';
+
+    // code here
+
+    function outer() {
+        let t = 2;
+
+        setTimeout(() => {
+            // second task
+            // closure to t
+            t = 4;
+        }, 2000);
+
+        return () => {
+            // closure to t
+            console.log(t);
+        };
+    }
+
+    const fn = outer();
+    fn();
+
+    setTimeout(() => {
+        // third task
+        // closure to fn
+        fn();
+    }, 4000);
+
+</script>
