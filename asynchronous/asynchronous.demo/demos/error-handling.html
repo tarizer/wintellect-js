@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<script>
+
+    'use strict';
+
+    // code here
+
+    try {
+        setTimeout(() => {
+            try {
+                throw Error('something went wrong!');
+            } catch(err) {
+                console.log('handled error inside callback function');
+                console.log(err);
+            }
+        }, 2000);
+        console.log('waiting');
+    } catch(err) {
+        console.log('handled error');
+        console.log(err);
+    }
+
+
+</script>

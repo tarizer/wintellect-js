@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<script>
+
+    'use strict';
+
+    // code here
+
+    const p = new Promise( (resolve, reject) => {
+        setTimeout(() => {
+            //resolve('success!');
+            reject('failure!');
+        }, 2000);
+    } );
+
+    console.log('waiting');
+
+    p.then(results => {
+        console.log('promise is resolved');
+        console.log(results);
+    }).catch(results => {
+        console.log('promise is rejected');
+        console.log(results);
+    });
+
+    //console.log(Promise.resolve('some value'));
+    Promise.reject('some value').catch(results => console.log(results));
+
+
+</script>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<script>
+
+    'use strict';
+
+    // code here
+
+    let doAsyncCallCounter = 0;
+
+    const doAsync = (doesResolve, timeout) => new Promise( (resolve, reject) => {
+        let currentCounterValue = ++doAsyncCallCounter;
+        setTimeout( () => {
+            if (doesResolve) {
+                console.log('success!', currentCounterValue);
+                resolve({ msg: 'success!', counter: currentCounterValue });
+            } else {
+                console.log('failure!', currentCounterValue);
+                reject({ msg: 'failure!', counter: currentCounterValue });
+            }
+        }, timeout);
+    });
+
+
+    const p1 = doAsync(true, 2000);
+    const p2 = doAsync(false, 1000);
+    const p3 = doAsync(true, 3000);
+
+    Promise.all([p1,p2,p3]).then(results => {
+        console.log('all done');
+        console.log(results);
+    }).catch( results => {
+        console.log('one failed');
+        console.log(results);
+    });
+
+
+    // let cbCounter = 0;
+
+    // cbCounter++;
+    // setTimeout( () => {
+    //     console.log('a');
+    //     cbCounter--;
+    //     if (cbCounter === 0) {
+    //         allDone();
+    //     }
+    // }, 2000);
+
+    // cbCounter++;
+    // setTimeout( () => {
+    //     console.log('b');
+    //     cbCounter--;
+    //     if (cbCounter === 0) {
+    //         allDone();
+    //     }
+    // }, 1000);
+
+    // cbCounter++;
+    // setTimeout( () => {
+    //     console.log('c');
+    //     cbCounter--;
+    //     if (cbCounter === 0) {
+    //         allDone();
+    //     }
+    // }, 3000);
+
+    // const allDone = () => {
+    //     console.log('all done');
+    // };
+
+</script>

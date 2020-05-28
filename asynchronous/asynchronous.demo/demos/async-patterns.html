@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<script>
+
+    'use strict';
+
+    // code here
+
+    let first = true;
+
+    setTimeout(() => {
+        if (first) {
+            console.log('a');
+            first = false;
+        }
+    }, 2000);
+
+    setTimeout(() => {
+        if (first) {
+            console.log('b');
+            first = false;
+        }
+    }, 3000);
+
+    // let counter = 0;
+
+    // counter++;
+    // setTimeout(() => {
+    //     console.log('a');
+    //     counter--;
+    //     if (counter === 0) {
+    //         allDone();
+    //     }
+    // }, 2000);
+
+    // counter++;
+    // setTimeout(() => {
+    //     console.log('b');
+    //     counter--;
+    //     if (counter === 0) {
+    //         allDone();
+    //     }
+    // }, 3000);
+
+    // counter++;
+    // setTimeout(() => {
+    //     console.log('c');
+    //     counter--;
+    //     if (counter === 0) {
+    //         allDone();
+    //     }
+    // }, 1000);
+
+    // function allDone() {
+    //     console.log('all done');
+    // }
+
+
+    // // pyramid of doom
+    // setTimeout(() => {
+    //     console.log('a');
+    //     setTimeout(() => {
+    //         console.log('b');
+    //         setTimeout(() => {
+    //             console.log('c');
+    //         }, 2000);
+    //     }, 2000);
+    // }, 2000);
+    // console.log('all timeouts registered');
+    
+
+</script>

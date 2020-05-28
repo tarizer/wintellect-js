@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<script>
+
+    'use strict';
+
+    // code here
+
+    let counter = 0;
+
+    const handle = setInterval(() => {
+        console.log('counter: ', counter++);
+    }, 100);
+
+    setTimeout(() => {
+
+        clearInterval(handle);
+        console.log('all done');
+
+    }, 4000);
+
+
+    // setTimeout(() => {
+    //     console.log('timeout expired');
+    // }, 0);
+
+    // console.log('waiting');
+
+    // const handle = setTimeout(() => {
+    //     console.log('timeout expired');
+    // }, 3000);
+
+    // setTimeout(() => {
+    //     clearTimeout(handle);
+    //     console.log('timeout cleared');
+    // }, 1000);
+
+    // console.log('waiting');
+
+
+</script>

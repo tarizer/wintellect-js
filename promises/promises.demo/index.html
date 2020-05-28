@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<script>
+
+    'use strict';
+
+    // code here
+
+    let doAsyncCallCounter = 0;
+
+    const doAsync = (doesResolve, timeout) => new Promise( (resolve, reject) => {
+        let currentCounterValue = ++doAsyncCallCounter;
+        setTimeout( () => {
+            if (doesResolve) {
+                console.log('success!', currentCounterValue);
+                resolve({ msg: 'success!', counter: currentCounterValue });
+            } else {
+                console.log('failure!', currentCounterValue);
+                reject({ msg: 'failure!', counter: currentCounterValue });
+            }
+        }, timeout);
+    });
+
+    Promise.race( [ doAsync(true, 1000), doAsync(true, 2000) ] )
+        .then( results => {
+            console.log('race is over!');
+            console.log(results);
+        });
+
+</script>

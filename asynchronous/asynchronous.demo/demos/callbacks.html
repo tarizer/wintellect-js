@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<script>
+
+    'use strict';
+
+    // code here
+
+    const doSomething = () => {
+
+        const message = 'Hi!';
+
+        const doIt = () => {
+            console.log('timeout expired', message);
+        };
+
+        console.dir(doIt);
+
+        setTimeout(doIt, 4000);
+
+    };
+
+    doSomething();
+    console.log('waiting');
+
+
+    // const doSomething = (fn) => {
+    //     console.log('entering do something');
+    //     fn();
+    //     console.log('exiting do something');
+    // };
+
+    // const cb = () => {
+    //     console.log('I was called!');
+    // };
+
+    // doSomething(cb);
+
+</script>

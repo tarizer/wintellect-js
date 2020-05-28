@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<script>
+
+    'use strict';
+
+    // code here
+
+    let doAsyncCallCounter = 0;
+
+    const doAsync = doesResolve => new Promise( (resolve, reject) => {
+        doAsyncCallCounter++;
+        setTimeout( () => {
+            if (doesResolve) {
+                console.log('success!', doAsyncCallCounter);
+                resolve({ msg: 'success!', counter: doAsyncCallCounter });
+            } else {
+                console.log('failure!', doAsyncCallCounter);
+                reject({ msg: 'failure!', counter: doAsyncCallCounter });
+            }
+        }, 2000);
+    });
+
+
+    doAsync(true)
+        .then(() => doAsync(true))
+        .then(() => doAsync(true))
+        .then(() => doAsync(false))
+        .then(() => doAsync(true))
+        .catch(err => {
+            console.log(err);
+        })
+        .then(() => {
+            console.log('finally');
+        },() => {
+            console.log('finally');
+        });
+
+</script>
